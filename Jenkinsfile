@@ -2,7 +2,7 @@ pipeline {
 	agent any
 	environment {
 		VERSION = '1.0.0'
-		DOCKERHUB_CREDENTIALS = credentials('docker-baoqiangy-credentials')
+		DOCKERHUB_CREDENTIALS = credentials('docker-crstewart2-credentials')
 	}
 	stages {
 		stage('Build') {
@@ -29,8 +29,8 @@ pipeline {
                 {
                         steps {
 				sh 'sudo chmod 666 /var/run/docker.sock'
-                                sh 'docker build -t baoqiangy/flaskdemo:$VERSION .'
-                                sh 'docker build -t baoqiangy/flaskdemo:latest .'
+                                sh 'docker build -t crstewart2/flaskdemo:$VERSION .'
+                                sh 'docker build -t crstewart2/flaskdemo:latest .'
                         }
                 }
 
@@ -44,8 +44,8 @@ pipeline {
 		stage('Push Image to Dockerhub') {
 
 			steps {
-				sh 'docker push baoqiangy/flaskdemo:$VERSION'
-				sh 'docker push baoqiangy/flaskdemo:latest'
+				sh 'docker push crstewart2/flaskdemo:$VERSION'
+				sh 'docker push crstewart2/flaskdemo:latest'
 			}
 		}
 
